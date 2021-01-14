@@ -1,0 +1,13 @@
+## python
+*.pyc
+*.pyo
+.eggs*
+.eggs
+*.eggs
+*.egg-info
+## editors
+*~
+*.orig
+*.bak
+## vim
+*.sw[op]
