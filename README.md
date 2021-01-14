@@ -1,12 +1,14 @@
-# Redmine -> Azure DevOps Migration
+# Redmine to Azure DevOps Migration
+
+This repo has a couple of scripts that can help you to migrate from redmine
+to Azure DevOps. It is **not** a fire and forgot kind of script but acts as
+a starting point for your own migration.
 
 ## Issues
 
-This repo has a script `migrate.py` that can help you to migrate your Redmine
-issues to Azure DevOps work items.
+The script `migrate.py` will migrate your Redmine issues to Azure DevOps work items.
 
-It is *not* a fire and forgot kind of script but acts as a starting point
-for your own migration. To use it you have to:
+To use it you have to:
 
 - install the dependencies in `requirements.txt`
 - adjust the constants at the top of the script (redmine url, tokens, etc)
