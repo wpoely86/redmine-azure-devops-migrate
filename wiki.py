@@ -17,7 +17,7 @@ redmine_key = "REPLACE_WITH_REDMINE_API_KEY"
 def main():
     redmine = Redmine(redmine_url, key=redmine_key)
 
-    project = redmine.project.get('some_project')
+    project = redmine.project.get("some_project")
 
     all_pages = dict()
 
@@ -48,8 +48,8 @@ def main():
         output_file = os.path.join(os.sep.join(path), f"{page.title}.md")
         content = page.text
 
-        for link in re.finditer(r'\[\[(?P<link>[^]]+)\]\]', content):
-            link_new = link.group('link').replace(' ', '_').replace('/', '')
+        for link in re.finditer(r"\[\[(?P<link>[^]]+)\]\]", content):
+            link_new = link.group("link").replace(" ", "_").replace("/", "")
             # we want uppercase on first letter
             link_new = link_new[0].upper() + link_new[1:]
             if link_new not in all_pages:
@@ -57,7 +57,7 @@ def main():
             new_path = os.path.join(os.sep.join(all_pages.get(link_new)[1]), f"{link_new}.md")
             content = re.sub(rf"\[\[{link.group('link')}\]\]", f"[{link.group('link')}](/{new_path})", content)
 
-        content = re.sub('{{toc}}', '[[_TOC_]]', content)
+        content = re.sub("{{toc}}", "[[_TOC_]]", content)
         with open(output_file, "w") as output:
             output.write(content)
 
