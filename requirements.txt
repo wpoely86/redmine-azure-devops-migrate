@@ -1,0 +1,4 @@
+azure-devops
+python-redmine
+markdown
+pymdown-extensions
