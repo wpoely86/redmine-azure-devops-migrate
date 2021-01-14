@@ -34,4 +34,10 @@ the git repo for a wiki, read [this](https://docs.microsoft.com/en-us/azure/devo
 
 ### change issue numbers
 
-Still to do: change the issue number from redmine to azure in the wiki pages
+With the script `migrate-wiki.py` you can change the issue references in the wikipages to the
+'new' work item id in Azure DevOps. You need to use the json file dumped by the issue migration
+script. Example:
+
+```
+find -name '*.md' -print0 | xargs -L1 -0 python3 migrate-wiki.py issue-mapping.json
+```
