@@ -16,7 +16,17 @@ To use it you have to:
 
 After that you can try it. I highly recommend to first try it on a test project.
 
-It does not migrate everything perfectly. Caveats:
+It does not migrate everything perfectly.
+What works:
+
+- Attachment are migrated (it will not work with files > 130MB)
+- Parent/child relations are migrated
+- A link to the original redmine issue is added to each work item
+- Comments are migrated
+- References to issues are replaced with a reference to the new work item id.
+  A relation to the mentioned work item is added but the link itself will not work.
+
+Caveats:
 
 - Comments always have the authorship of the Azure token owner (the API doesn't allow you to change it).
 - Tracker information is not used in Azure. We add it in a table at the bottom of the work item.
