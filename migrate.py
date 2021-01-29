@@ -194,7 +194,7 @@ def main():
 
     # now create the relations between them
     for issue in issues:
-        if not getattr(issue, "parent", None) or issue.id not in issue_map:
+        if not getattr(issue, "parent", None) or issue.id not in issue_map or issue.parent.id not in issue_map:
             continue
         print(f"Adding link: {issue.parent.id} -> {issue.id}")
         parent_link = Link(rel="System.LinkTypes.Hierarchy-Reverse", url=issue_map[issue.parent.id][1])
