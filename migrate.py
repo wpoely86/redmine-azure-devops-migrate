@@ -122,7 +122,7 @@ def create_work_item(work_client, issue):
 
     # migrate the notes/comments on the issue
     for note in issue.journals:
-        if not note.notes:
+        if not getattr(note, "notes", None):
             continue
         note_text = note.notes + f"\n\n\n*Original author: {note.user.name}*\n\n*Original date: {note.created_on}*"
         comment = CommentCreate(markdown.markdown(note_text, extensions=["pymdownx.magiclink", "pymdownx.extra"]))
