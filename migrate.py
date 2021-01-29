@@ -189,7 +189,7 @@ def main():
         create_work_item(work_client, issue)
 
     # save issue map
-    with open(f"issue-mapping-{datetime.datetime.now().isoformat()}.json", "w") as json_out:
+    with open(f"issue-mapping-{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json", "w") as json_out:
         json.dump(issue_map, json_out)
 
     # now create the relations between them
