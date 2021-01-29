@@ -25,6 +25,8 @@ What works:
 - Comments are migrated
 - References to issues are replaced with a reference to the new work item id.
   A relation to the mentioned work item is added but the link itself will not work.
+- The 'state' of a redmine issue is mapped to a state Azure DevOps with the
+  dict 'state_map'. The default is 'To Do'.
 
 Caveats:
 
