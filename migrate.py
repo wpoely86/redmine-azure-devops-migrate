@@ -146,6 +146,8 @@ def create_work_item(work_client, issue):
             add_attachment_link = [JsonPatchOperation(op="Add", path="/relations/-", value=attach_link)]
             work_client.update_work_item(add_attachment_link, work_item_id, project)
 
+    # change the state of the work item to the real state in redmine. States are change with the
+    # mapping in state_map
     if issue.status.name in state_map and issue.status.name != "Pending":
         state = JsonPatchOperation(op="Add", path="/fields/System.State", value=state_map[issue.status.name])
         work_client.update_work_item([state], work_item_id, project)
