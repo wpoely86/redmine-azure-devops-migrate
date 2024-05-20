@@ -17,7 +17,8 @@ redmine_key = "REPLACE_WITH_REDMINE_API_KEY"
 def main():
     redmine = Redmine(redmine_url, key=redmine_key)
 
-    project = redmine.project.get("some_project")
+    a_project_id = "some_project"
+    project = redmine.project.get(a_project_id)
 
     all_pages = dict()
 
@@ -33,7 +34,7 @@ def main():
         full_path = []
         while parent:
             full_path.append(parent.title)
-            parent_page = redmine.wiki_page.get(parent.title, project_id=project)
+            parent_page = redmine.wiki_page.get(parent.title, project_id=a_project_id)
             parent = getattr(parent_page, "parent", None)
         full_path.reverse()
 
